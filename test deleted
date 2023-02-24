@@ -1,0 +1,26 @@
+package jdbcpgms;
+import java.sql.*;
+
+public class Test8 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+try
+{
+    Class.forName("oracle.jdbc.driver.OracleDriver");
+    Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","mca","mca");
+    Statement stmt = con.createStatement();
+    
+    String q=("delete from test5 where tid='T009'");
+    
+    stmt.executeUpdate(q);
+    System.out.println("Values Deleted");
+    con.close();
+}
+catch(Exception e)
+{
+    System.out.println(e);
+}
+    }
+
+}
